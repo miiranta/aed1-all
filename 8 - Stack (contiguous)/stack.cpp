@@ -11,7 +11,7 @@ Stack::~Stack(){
 
 void Stack::push(entryType in){
     if(full()){
-        std::cout << "Stack full!" << "\n";
+        std::cout << "Stack is full!" << "\n";
         return;
     }
 
@@ -21,7 +21,7 @@ void Stack::push(entryType in){
 
 void Stack::pop(entryType &out){
     if(empty()){
-        std::cout << "Stack empty!" << "\n";
+        std::cout << "Stack is empty!" << "\n";
         return;
     }
 
