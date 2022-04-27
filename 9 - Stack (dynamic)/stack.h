@@ -8,9 +8,11 @@ class Stack{
         ~Stack();
         void push(entryType in);
         void pop(entryType &out);
+        void clear();
+        void getTop(entryType &out);
         bool empty();
         bool full();
-        void clear();
+        int size();
     private:
         //Linear nodes
         struct stackNode;
@@ -21,4 +23,5 @@ class Stack{
         };
 
         StackPointer top;
+        int count;
 };

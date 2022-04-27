@@ -3,6 +3,7 @@
 
 Stack::Stack(){
     top = NULL;
+    count = 0;
 };
 
 Stack::~Stack(){
@@ -21,6 +22,8 @@ void Stack::push(entryType in){
     p->entry = in;
     p->nextNode = top;
     top = p;
+
+    count++;
 };
 
 void Stack::pop(entryType &out){
@@ -35,6 +38,8 @@ void Stack::pop(entryType &out){
     p = top;
     top = top->nextNode;
     delete p;
+
+    count--;
 };
 
 bool Stack::empty(){
@@ -52,4 +57,19 @@ void Stack::clear(){
     while(!empty()){
         pop(x);
     }
+
+    count = 0;
+};
+
+void Stack::getTop(entryType &out){
+    if(empty()){
+        std::cout << "Stack is empty!" << std::endl;
+        return;
+    }
+
+    out = top->entry;
+};
+
+int Stack::size(){
+    return count;
 };

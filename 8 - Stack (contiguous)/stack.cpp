@@ -36,3 +36,20 @@ bool Stack::empty(){
 bool Stack::full(){
     return (top == MAX);
 };
+
+void Stack::clear(){
+    top = 0;
+};
+
+void Stack::getTop(entryType &out){
+    if(empty()){
+        std::cout << "Stack is empty!" << "\n";
+        return;
+    }
+
+    out = stackData[top];
+};
+
+int Stack::size(){
+    return top;
+};

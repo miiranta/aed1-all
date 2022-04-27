@@ -10,6 +10,11 @@ class Stack{
         void pop(entryType &out);
         bool empty();
         bool full();
+
+        int size();
+        void getTop(entryType &out);
+        void clear();
+
     private:
         static const int MAX = 500;
         int top;

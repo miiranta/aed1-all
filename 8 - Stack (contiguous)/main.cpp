@@ -14,11 +14,17 @@ int main(){
     in = 6;
     stack.push(in);
 
+    cout << "Stack size: " << stack.size() << endl;
+    stack.getTop(out);
+    cout << "Stack top: " << out << endl;
+
     stack.pop(out);
     cout << out << endl;
     stack.pop(out);
     cout << out << endl;
     stack.pop(out);
     cout << out << endl;
+
+    cout << "Stack size: " << stack.size() << endl;
 }
 
