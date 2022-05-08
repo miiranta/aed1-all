@@ -15,8 +15,21 @@ class List{
         bool full();
         int size();
         int search(entryType in);
+        //Minimum
+        //Maximum
+        //Copy
+        //Reverse
+        //Sort
     private:
-        static const int MAX = 100;
+        struct listNode;
+        typedef listNode (*listPointer);
+        struct listNode{
+            entryType entry;
+            listPointer nextNode;
+        };
+
+        listPointer head;
         int count;
-        entryType entry[MAX+1];
+
+        void setPosition(int pos, listPointer &current);
 };

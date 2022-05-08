@@ -81,3 +81,12 @@ int List::size(){
     return count;
 }
 
+int List::search(entryType in){
+    int p = 1;
+    
+    while(p<=count && entry[p] != in){
+        p++;
+    }
+
+    return (p > count ? 0 : p);
+}
