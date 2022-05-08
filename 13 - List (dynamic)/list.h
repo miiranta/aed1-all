@@ -10,16 +10,18 @@ class List{
         void remove(entryType &out, int p);
         void replace(entryType in, int p);
         void retrieve(entryType &out, int p);
+        //void minimum(entryType &out, int &p);
+        //void maximum(entryType &out, int &p);
+        //void copy(List &l);
+        //void reverse(); //For that list
+        //void reverse(List &l); //For new list
+        //void sort();
         void clear();
         bool empty();
         bool full();
         int size();
         int search(entryType in);
-        //Minimum
-        //Maximum
-        //Copy
-        //Reverse
-        //Sort
+        
     private:
         struct listNode;
         typedef listNode (*listPointer);

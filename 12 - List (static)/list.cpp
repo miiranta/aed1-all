@@ -82,6 +82,7 @@ int List::size(){
 }
 
 int List::search(entryType in){
+    //linear search
     int p = 1;
     
     while(p<=count && entry[p] != in){

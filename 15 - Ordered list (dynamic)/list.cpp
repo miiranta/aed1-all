@@ -23,11 +23,11 @@ bool OrderedList::full(){
 void OrderedList::setPosition(int p, listPointer &current){
     int i;
 
-    // Test if the position is valid
-    //if(p<1 || p>count+1){
-    //    std::cout << "Position out of range." << std::endl;
-    //    return;
-    //}
+    //Test if the position is valid
+    if(p<1 || p>count+1){
+        std::cout << "Position out of range." << std::endl;
+        return;
+    }
 
     current = head;
     for(i=2; i<=p; i++){
@@ -38,7 +38,7 @@ void OrderedList::setPosition(int p, listPointer &current){
 void OrderedList::insert(entryType in){  
     listPointer p, q;
 
-    //Search for the position to insert
+    //linear search with sentinel
     sentinel->entry = in;
     p = head;
     while(p->entry < in){
@@ -66,7 +66,7 @@ void OrderedList::insert(entryType in){
 void OrderedList::remove(entryType in){  
     listPointer p = NULL, q = head;
 
-    //Search for the position to remove
+    //linear search with sentinel
     sentinel->entry = in;
     while(q->entry < in){
         p = q;
@@ -113,6 +113,43 @@ void OrderedList::retrieve(entryType &out, int p){
     out = current->entry;
 }
 
+void OrderedList::searchInsert(entryType in){
+    listPointer p, q;
+
+    //linear search with sentinel
+    sentinel->entry = in;
+    p = head;
+    while(p->entry < in){
+        p = p->nextNode;
+    }
+
+    if(p != sentinel && p->entry == in){
+        //FOUND (increase frequency)
+        p->frequency++;
+
+    }else{
+        //NOT FOUND (insert)
+        q = new listNode;
+
+        if(q == NULL){
+            std::cout << "List is full." << std::endl;
+            return;
+        }
+
+        if(p == sentinel){
+            p->nextNode = q;
+            sentinel = q;
+        }else{
+            *q = *p;
+            p->entry = in;
+            p->nextNode = q;
+        }
+
+        p->frequency = 1;
+        count++;
+    }
+}
+
 void OrderedList::clear(){
     listPointer q;
 
@@ -130,6 +167,7 @@ int OrderedList::size(){
 }
 
 int OrderedList::search(entryType in){
+    //linear search with sentinel
     int pos = 1;
     listPointer q = head;
 

@@ -25,12 +25,11 @@ void OrderedList::insert(entryType in){
         return;
     }
 
-    //Busca linear-----------------------------------------------------
+    //linear Search
     i = 1;
     while(i<=count && in>entry[i]){
         i++;
     }
-    //-----------------------------------------------------------------
 
     for(j=count; j>=i; j--){
         entry[j+1] = entry[j];
@@ -89,8 +88,7 @@ int OrderedList::size(){
 }
 
 int OrderedList::search(entryType in){
-    //Busca binária rápida
-
+    //fast binary search
     int m, L = 1, R = count;
 
     while(L<R){

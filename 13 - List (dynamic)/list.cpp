@@ -22,12 +22,6 @@ bool List::full(){
 void List::setPosition(int p, listPointer &current){
     int i;
 
-    // Test if the position is valid
-    //if(p<1 || p>count+1){
-    //    std::cout << "Position out of range." << std::endl;
-    //    return;
-    //}
-
     current = head;
     for(i=2; i<=p; i++){
         current = current->nextNode;
@@ -121,6 +115,7 @@ int List::size(){
 }
 
 int List::search(entryType in){
+    //linear search
     int p = 1;
     listPointer current = head;
 
