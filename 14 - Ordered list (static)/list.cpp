@@ -1,23 +1,23 @@
 #include <iostream>
 #include "list.h"
 
-List::List(){
+OrderedList::OrderedList(){
     count = 0;
 }
 
-List::~List(){
+OrderedList::~OrderedList(){
     std::cout << "List closed!" << std::endl;
 }
 
-bool List::empty(){
+bool OrderedList::empty(){
     return (count == 0);
 }
 
-bool List::full(){
+bool OrderedList::full(){
     return (count == MAX);
 }
 
-void List::insert(entryType in){  
+void OrderedList::insert(entryType in){  
     int i, j;
 
     if(full()){
@@ -40,7 +40,7 @@ void List::insert(entryType in){
     count++;
 }
 
-void List::remove(entryType out){  
+void OrderedList::remove(entryType in){  
     int i, p;
 
     if(empty()){
@@ -48,7 +48,7 @@ void List::remove(entryType out){
         return;
     }
 
-    p = search(out);
+    p = search(in);
 
     if(p==0){
         std::cout << "Element not found." << std::endl;
@@ -62,7 +62,7 @@ void List::remove(entryType out){
     count--;
 }
 
-void List::replace(entryType in, int p){
+void OrderedList::replace(entryType in, int p){
     if(p<1 || p>count){
         std::cout << "Position out of range." << std::endl;
         return;
@@ -71,7 +71,7 @@ void List::replace(entryType in, int p){
     entry[p] = in;
 }
 
-void List::retrieve(entryType &out, int p){
+void OrderedList::retrieve(entryType &out, int p){
     if(p<1 || p>count){
         std::cout << "Position out of range." << std::endl;
         return;
@@ -80,15 +80,15 @@ void List::retrieve(entryType &out, int p){
     out = entry[p];
 }
 
-void List::clear(){
+void OrderedList::clear(){
     count = 0;
 }
 
-int List::size(){
+int OrderedList::size(){
     return count;
 }
 
-int List::search(entryType in){
+int OrderedList::search(entryType in){
     //Busca binária rápida
 
     int m, L = 1, R = count;

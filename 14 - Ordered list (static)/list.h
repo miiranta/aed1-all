@@ -2,12 +2,12 @@
 
 typedef int entryType;
 
-class List{
+class OrderedList{
     public:
-        List();
-        ~List();
+        OrderedList();
+        ~OrderedList();
         void insert(entryType in);
-        void remove(entryType out);
+        void remove(entryType in);
         void replace(entryType in, int p);
         void retrieve(entryType &out, int p);
         void clear();
