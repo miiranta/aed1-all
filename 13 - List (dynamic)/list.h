@@ -21,7 +21,6 @@ class List{
         bool full();
         int size();
         int search(entryType in);
-        
     private:
         struct listNode;
         typedef listNode (*listPointer);
