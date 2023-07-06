@@ -1,3 +1,6 @@
+//Nome:       Lucas Miranda Mendonça Rezende
+//Número USP: 12542838
+
 #include <iostream>
 #include <iomanip>
 #include <climits>
@@ -400,8 +403,46 @@ TreeEntry BinarySearchTree<TreeEntry>::maximum(TreePointer &t)
 //------------------------------------------------------------
 template< class TreeEntry >
 TreeEntry BinarySearchTree<TreeEntry>::successor(TreeEntry x)
-{ // sua implementacao vem aqui...
+{ //O pior caso é:
+  //O(N) ou O(H) se a arvore for desbalanceada (já que H pode ser igual a N no pior caso)
+  //O(logN) ou O(H) se a arvore for balanceada (já que H é proporcional a LogN no pior caso)
+  //
+  //Onde N é o numero de nos da arvore
+  //e H é a altura da arvore
+  
+  TreePointer t = root, saveSuc;
 
+  //Procurando o elemento para achar o sucessor
+  while (t != NULL && t->entry != x){
+    if(x < t->entry){
+
+      //Se for para a esquerda, o sucessor é o parente da nova posição
+      saveSuc = t;
+      
+      t = t->leftNode; // procurar subarvore esquerda
+    }else{
+      t = t->rightNode; // procurar subarvore direita
+    }
+  }
+    
+  //Elemento/Sucessor existe?
+  if(t == NULL || saveSuc == NULL){
+    //cout << "Sucessor nao encontrado";
+    return INT_MAX;
+  }
+  
+  //Caso 1: Existe árvore direita não vazia
+  if(t->rightNode != NULL){
+    t = t->rightNode;
+
+    while(t->leftNode != NULL){
+      t = t->leftNode;
+    }
+    return t->entry;
+  }
+
+  //Caso 2: Subárvore direita vazia
+  return saveSuc->entry;
 }
 //------------------------------------------------------------
 #endif /* BSTREETEMPLATE_H */
